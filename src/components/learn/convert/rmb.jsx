@@ -1,15 +1,14 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 
-export default class Rmb extends Component{
-  constructor(props){
+export default class Rmb extends Component {
+  constructor(props) {
     super(props);
-
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
-        人民币:{ this.props.price }
+        人民币:{this.props.price}
       </div>
     )
   }

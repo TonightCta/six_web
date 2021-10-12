@@ -1,0 +1,56 @@
+//头部导航
+.nav-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+  padding: 0 24px;
+  color: white;
+  .iconfont {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .tools-left {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    p {
+      margin-bottom: 0;
+      margin-left: 24px;
+    }
+  }
+  .tools-right {
+    display: flex;
+    align-items: center;
+    p {
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+    }
+    .qr-box {
+      .qr-line {
+        width: 1px;
+        height: 16px;
+        background-color: #353e66;
+        margin: 0 24px;
+      }
+    }
+    .uid-box {
+      font-size: 13px;
+      color: #a2a5b0;
+      span {
+        color: white;
+        margin-left: 4px;
+      }
+      .iconfont {
+        font-size: 16px;
+        margin-right: 4px;
+      }
+    }
+  }
+}
+//路由菜单
+.menu-list {
+  width: 100%;
+}

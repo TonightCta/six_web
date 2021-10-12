@@ -9,7 +9,6 @@ class Parent extends Component{
       price:0,
     }
   }
-+
   inpVal = (e) => {
     this.setState({
       price:e.target.value
