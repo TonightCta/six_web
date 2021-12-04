@@ -14,5 +14,16 @@
     height: calc(100vh - 80px);
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 0 24px;
+  }
+}
+.public-bureau {
+  width: 100%;
+  height: calc(100% - 13px);
+  padding: 24px;
+  background: #1b2447;
+  border-radius: 4px;
+  p {
+    color: white;
   }
 }

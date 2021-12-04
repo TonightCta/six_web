@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Index from "./antd";
+import RouterConfig from "./antd/route/router";
 import './index.css'
 
 export default class App extends Component {
@@ -9,15 +9,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* Hello */}
-        <Index />
-        {/*
-          <State changeSometing = { this.change }/>
-          <RefDemo/>
-          <Parent>
-            <p>我是slot插槽</p>
-          </Parent>
-        */}
+        <RouterConfig />
       </div>
     );
   }

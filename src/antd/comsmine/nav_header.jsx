@@ -23,4 +23,4 @@ export default class NavHeader extends Component {
       </div>
     );
   }
-}
+};
