@@ -5,11 +5,13 @@ import LogoImg from "../../assets/images/firstlogo_red.png";
 import { Link } from "react-router-dom";
 import { t } from "i18next";
 import i18n from "../../lang";
+import store from "../../store";
+import { changeInputAction } from "../../store/app/action_creators";
 
 export default class NavHeader extends Component {
   constructor() {
     super();
-    this.state = {
+    this.state_nav = {
       menu_list: [
         {
           //关于我们
@@ -42,16 +44,33 @@ export default class NavHeader extends Component {
           url: "/contact-us",
         },
       ],
-      //选中菜单
-      active_nav: 0,
     };
+    this.state = store.getState();
+  }
+  componentDidMount(){
+    store.subscribe(this.storeChange);
   }
   //切换菜单选中状态
   activeNav(_index) {
-    return _index === this.state.active_nav ? "active-nav" : "";
+    return _index == this.state.active_nav ? "active-nav" : "";
+  }
+  //订阅Store
+  storeChange = () => {
+    this.setState(store.getState());
+  }
+  //语言状态保存
+  setLanguage(_lang){
+    let action = changeInputAction({'language':_lang});
+    store.dispatch(action);
+    window.location.reload();
+  }
+  //更新选中菜下标
+  changeActive(_index){
+    let action = changeInputAction({'active_nav':_index});
+    store.dispatch(action);
   }
   render() {
-    const { menu_list } = this.state;
+    const { menu_list } = this.state_nav;
 
     return (
       <div className="nav-header">
@@ -67,7 +86,7 @@ export default class NavHeader extends Component {
                 <li
                   key={index}
                   onClick={() => {
-                    this.setState({ active_nav: index });
+                    this.changeActive(index)
                   }}
                   className={this.activeNav(index)}
                 >
@@ -82,6 +101,7 @@ export default class NavHeader extends Component {
             type="icon-guojihua_international"
             onClick={() => {
               i18n.changeLanguage(i18n.language === "en" ? "zh-CN" : "en");
+              this.setLanguage(i18n.language)
             }}
           />
           {/* 搜索 */}

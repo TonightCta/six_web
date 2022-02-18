@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import { t } from "i18next";
 
 export default class Project extends Component {
+  constructor(props){
+    super(props)
+  }
+  componentDidMount(){
+    // console.log(this.props)
+  }
   render() {
     return (
       <div className="project-box">

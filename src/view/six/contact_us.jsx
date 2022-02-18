@@ -8,7 +8,7 @@ export default class ContactUs extends Component {
   }
   async testAxios() {
     const result = await trackList();
-    console.log(result);
+    // console.log(result);
   }
   render() {
     return (
