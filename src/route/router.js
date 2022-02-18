@@ -1,4 +1,4 @@
-import Index from "../index";
+import Index from "../index.jsx";
 import React from 'react';
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { createHashHistory } from 'history';
@@ -10,7 +10,7 @@ export default class RouterConfig extends React.Component {
             <Router history={history}>
                 <Switch>
                     <Route path="/" exact render={() => (
-                        <Redirect to="/index" />
+                        <Redirect to="/index/about-us" />
                     )}></Route>
                     <Route path="/index" component={Index}></Route>
                 </Switch>

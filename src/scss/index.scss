@@ -8,22 +8,26 @@
     background: linear-gradient(90deg, #2287f4 0%, #1b60ab 100%);
     margin-left: 24px;
     border-radius: 4px;
+    display: none;
   }
   .view-box {
     flex: 1;
-    height: calc(100vh - 80px);
+    height: auto;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 0 24px;
+    padding: 184px 0;
+    text-align: center;
+    p {
+      font-size: 28px;
+      font-weight: bold;
+    }
   }
 }
 .public-bureau {
   width: 100%;
-  height: calc(100% - 13px);
   padding: 24px;
-  background: #1b2447;
   border-radius: 4px;
   p {
-    color: white;
+    color: black;
   }
 }

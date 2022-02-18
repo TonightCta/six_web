@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import RouterConfig from "./antd/route/router";
-import './index.css'
+import RouterConfig from "./route/router";
+import "./assets/css/index.css";
+import { Translation } from "react-i18next";
 
 export default class App extends Component {
   change = () => {
@@ -8,9 +9,15 @@ export default class App extends Component {
   };
   render() {
     return (
-      <div className="App">
-        <RouterConfig />
-      </div>
+      <Translation>
+        {(t) => {
+          return (
+            <div className="App">
+              <RouterConfig />
+            </div>
+          );
+        }}
+      </Translation>
     );
   }
 }

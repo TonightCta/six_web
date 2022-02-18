@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #111a3b!important;
 }
 
 code {
@@ -116,6 +115,7 @@ body {
 ol,
 ul {
   list-style: none;
+  margin-bottom: 0!important;
 }
 blockquote,
 q {
