@@ -71,7 +71,6 @@ export default class NavHeader extends Component {
   }
   render() {
     const { menu_list } = this.state_nav;
-
     return (
       <div className="nav-header">
         <div className="tools-left">
