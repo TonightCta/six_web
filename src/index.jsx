@@ -14,10 +14,6 @@ export default class Index extends Component {
         <NavHeader />
         {/*主体盒子*/}
         <div className="main-box">
-          {/*TODO 菜单*/}
-          <div className="menu-main-box">
-            <MenuSlider />
-          </div>
           {/*视图*/}
           <div className="view-box">
             <Route history={history}>

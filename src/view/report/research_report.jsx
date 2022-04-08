@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { t } from "i18next";
+import './report.scss'
 
 export default class ResearchReport extends Component {
   render() {

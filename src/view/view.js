@@ -1,8 +1,8 @@
-import AboutUs from './six/about_us';
-import ResearchReport from './six/research_report';
-import Project from './six/project';
-import Media from './six/media';
-import ContactUs from './six/contact_us';
+import AboutUs from './about/about_us';
+import ResearchReport from './report/research_report';
+import Project from './project/project';
+import Media from './media/media';
+import ContactUs from './contact/contact_us';
 
 export {
     AboutUs,

@@ -94,7 +94,7 @@ export default class NavHeader extends Component {
               );
             })}
           </ul>
-          {/* 多语言 */}
+          {/* 多语言切换 */}
           <IconFont
             className="iconfont left-first"
             type="icon-guojihua_international"

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { t } from "i18next";
+import './about.scss'
 
 export default class AboutUs extends Component {
   render() {

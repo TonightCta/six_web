@@ -1,25 +1,15 @@
 .main-box {
   width: 100%;
-  display: flex;
-  .menu-main-box {
-    width: 256px;
-    height: calc(100vh - 94px);
-    overflow: hidden;
-    background: linear-gradient(90deg, #2287f4 0%, #1b60ab 100%);
-    margin-left: 24px;
-    border-radius: 4px;
-    display: none;
-  }
   .view-box {
-    flex: 1;
-    height: auto;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 184px 0;
+    width: 1170px;
+    margin: 0 auto;
+    background-color: red;
+    padding:24px 0;
     text-align: center;
     p {
       font-size: 28px;
       font-weight: bold;
+      color:white;
     }
   }
 }

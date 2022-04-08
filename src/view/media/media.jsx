@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { t } from "i18next";
+import './media.scss'
 
 export default class Media extends Component {
   render() {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { trackList } from "../../request/api";
 import { t } from "i18next";
+import './contact.scss'
 
 export default class ContactUs extends Component {
   componentDidMount() {
@@ -8,7 +9,7 @@ export default class ContactUs extends Component {
   }
   async testAxios() {
     const result = await trackList();
-    // console.log(result);
+    console.log(result);
   }
   render() {
     return (
