@@ -1,4 +1,4 @@
-export const CHANGE_INPUT = 'change_input';
-export const ADD_ITEM = 'add_item';
-export const DELETE_ITEM = 'delete_item';
-export const GET_LIST = 'get_list';
+export const UP_USER_INFO = 'up_user_info';
+export const UP_NAV = 'un_nav';
+export const CHANGE_LANGUAGE = 'change_language';
+export const UP_ACTIVE_NAV = 'up_active_nav';

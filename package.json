@@ -17,12 +17,16 @@
     "redux": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
   "scripts": {
-    "start": "REACT_APP_NODE_ENV=development react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "build:test": "REACT_APP_NODE_ENV=test react-scripts build",
-    "eject": "react-scripts eject"
+    "start": "REACT_APP_NODE_ENV=development react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "build:test": "REACT_APP_NODE_ENV=test react-app-rewired build",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": [
@@ -47,9 +51,14 @@
   },
   "devDependencies": {
     "antd": "^4.16.0",
+    "customize-cra": "^1.0.0",
     "node-sass": "^6.0.1",
+    "react-animated-router": "^0.2.4",
+    "react-app-rewired": "^2.2.1",
     "react-error-overlay": "6.0.9",
-    "react-router": "^5.2.1"
+    "react-router": "^5.2.1",
+    "react-transition-group": "^4.4.2",
+    "sass-resources-loader": "^2.2.4"
   },
   "resolutions": {
     "react-error-overlay": "6.0.9"

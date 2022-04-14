@@ -1,18 +1,19 @@
-import { CHANGE_INPUT,ADD_ITEM,DELETE_ITEM,GET_LIST } from "./action_types";
+import { UP_USER_INFO,UP_NAV,CHANGE_LANGUAGE,UP_ACTIVE_NAV } from "./action_types";
 
-export const changeInputAction = (value) => ({
-    type:CHANGE_INPUT,
-    value
+export const upUserInfo = (account) => ({
+    type:UP_USER_INFO,
+    account
+})
+export const upNavHeight = (height) => ({
+    type:UP_NAV,
+    height
 });
-export const addItemAction = () => ({
-    type:ADD_ITEM
+export const changeLanguage = (language) => ({
+    type:CHANGE_LANGUAGE,
+    language
 });
-export const deleteItemAction = (index) => ({
-    type:DELETE_ITEM,
+export const upActiveNav = (index) => ({
+    type:UP_ACTIVE_NAV,
     index
-});
-export const getListAction = (data) => ({
-    type:GET_LIST,
-    data
-});
+})
 

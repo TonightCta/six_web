@@ -10,7 +10,7 @@ export default class App extends Component {
       <Translation>
         {(t) => {
           return (
-            <div className="App">
+            <div className="App" style={{overflow:'hidden'}}>
               <RouterConfig/>
             </div>
           );
