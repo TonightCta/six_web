@@ -1,8 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-// import { upActiveNav } from "../../store/app/action_creators";
 import "./into_contact.scss";
-// import store from "../../store";
 
 
 const IntoContact = () => {

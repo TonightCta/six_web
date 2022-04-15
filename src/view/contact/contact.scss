@@ -1,0 +1,57 @@
+.contact-us {
+  width: 1170px;
+  margin: 0 auto;
+  padding-top: 120px;
+  .contact-title {
+    display: flex;
+    height: 52px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    .title-text {
+      font-size: 40px;
+      font-weight: bold;
+      color: $nav-active;
+    }
+    .address-box {
+      display: flex;
+      p {
+        margin-left: 24px;
+      }
+      .iconfont {
+        font-size: 32px;
+        color: $high-text;
+        cursor: pointer;
+      }
+      .address-email {
+        border: 1px solid $line-color;
+        display: flex;
+        align-items: center;
+        padding-right: 16px;
+        .iconfont {
+          width: 48px;
+          height: 48px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color:$high-text;
+          font-size: 32px;
+          margin-right: 16px;
+          border-right: 1px solid $line-color;
+        }
+        span {
+          font-size: 18px;
+          color: $nav-active;
+        }
+      }
+      .out-width-icon {
+        width: 48px;
+        height: 48px;
+        border: 1px solid $line-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

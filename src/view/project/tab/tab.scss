@@ -1,0 +1,57 @@
+.project-tab {
+  display: flex;
+  height: 48px;
+  margin-bottom: 40px;
+  .all-tab {
+    height: 100%;
+    margin-right: 15px;
+    line-height: 48px;
+    position: relative;
+    cursor: pointer;
+  }
+  ul {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    overflow: auto;
+    li {
+      margin: 0 15px;
+      height: 100%;
+      line-height: 48px;
+      position: relative;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+  }
+  ul::-webkit-scrollbar{
+      display: none;
+  }
+  .active-line {
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -8px;
+    background-color: $active-line;
+    transition: 0.3s all;
+  }
+  .active-nav-pro {
+    font-weight: bold;
+    .active-line {
+      width: 16px;
+    }
+  }
+  .move-more-race {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 24px;
+    .iconfont {
+      font-size: 24px;
+      color: $icon-color;
+    }
+  }
+}

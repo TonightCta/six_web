@@ -38,12 +38,71 @@
       font-size: 18px;
       color: $text-color;
       line-height: 36px;
-      a{
-          color:$href-color;
+      a {
+        color: $href-color;
       }
     }
     p:last-child {
       margin-top: 40px;
+    }
+  }
+  .remark-box {
+    width: 1170px;
+    margin: 0 auto;
+    margin-bottom: 120px;
+    .remark-msg {
+      width: 1010px;
+      .msg-title {
+        font-size: 32px;
+        color: $nav-active;
+        font-weight: bold;
+        margin-bottom: 40px;
+      }
+      .msg-text {
+        font-size: 16px;
+        color: $text-color;
+        line-height: 36px;
+      }
+      .need-height {
+        margin-top: 40px;
+      }
+      .view-more {
+        margin-top: 80px;
+        button {
+          font-weight: bold;
+          padding: 17px 24px;
+          display: flex;
+          align-items: center;
+          .iconfont {
+            font-size: 24px;
+            font-weight: 400;
+            margin-left: 80px;
+            color: $icon-color;
+          }
+        }
+      }
+    }
+    .remark-need-left {
+      width: 200%;
+      padding: 120px 80px 80px;
+      background-color: $white-text;
+      text-align: left;
+      img {
+        width: 1170px;
+        height: 360px;
+        margin-left: -160px;
+        margin-bottom: 90px;
+      }
+    }
+    .remark-need-center {
+      padding: 120px 80px;
+      width: 100%;
+      background: white;
+      text-align: left;
+      img {
+        width: 100%;
+        margin-bottom: 90px;
+      }
     }
   }
 }
