@@ -1,6 +1,5 @@
 .project-tab {
   display: flex;
-  height: 48px;
   margin-bottom: 40px;
   .all-tab {
     height: 100%;
@@ -13,18 +12,23 @@
     flex: 1;
     height: 100%;
     display: flex;
+    flex-wrap: nowrap;
     overflow: auto;
+    padding-top: 9px;
     li {
       margin: 0 15px;
       height: 100%;
-      line-height: 48px;
+      line-height: 30px;
       position: relative;
       cursor: pointer;
       white-space: nowrap;
     }
   }
-  ul::-webkit-scrollbar{
-      display: none;
+  .no-limit-race {
+    flex-wrap: wrap;
+  }
+  ul::-webkit-scrollbar {
+    display: none;
   }
   .active-line {
     display: inline-block;
@@ -46,12 +50,21 @@
   .move-more-race {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     cursor: pointer;
+    padding-top: 12px;
     margin-left: 24px;
     .iconfont {
       font-size: 24px;
       color: $icon-color;
+      display: inline-block;
+      transition: 0.3s all;
+      transform: rotate(90deg);
+    }
+  }
+  .open-more {
+    .iconfont {
+      transform: rotate(-90deg);
     }
   }
 }

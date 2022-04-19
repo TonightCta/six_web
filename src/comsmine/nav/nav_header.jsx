@@ -6,6 +6,8 @@ import { Link, withRouter } from "react-router-dom";
 import { t } from "i18next";
 import i18n from "../../lang";
 import store from "../../store";
+import { Dropdown } from "antd";
+import MediaMenu from "./media_m/media_menu";
 import {
   changeLanguage,
   upNavHeight,
@@ -21,32 +23,38 @@ class NavHeader extends Component {
           title: t("menu.about"),
           id: 1,
           url: "/about-us",
+          is_menu: false,
         },
         {
           //研报
           title: t("menu.report"),
           id: 2,
           url: "/research-report",
+          is_menu: false,
         },
         {
           //投资项目
           title: t("menu.project"),
           id: 3,
           url: "/project",
+          is_menu: false,
         },
         {
           //媒体
           title: t("menu.media"),
           id: 4,
           url: "/media",
+          is_menu: true,
         },
         {
           //联系我们
           title: t("menu.contact"),
           id: 5,
           url: "/contact-us",
+          is_menu: false,
         },
       ],
+      
     };
     this.state = store.getState();
     this.nav_height = 120;
@@ -124,7 +132,7 @@ class NavHeader extends Component {
           {/* 导航列表 */}
           <ul>
             {menu_list.map((el, index) => {
-              return (
+              return !el.is_menu ? (
                 <li
                   key={index}
                   onClick={() => {
@@ -134,6 +142,12 @@ class NavHeader extends Component {
                 >
                   <Link to={`/index${el.url}`}>{el.title}</Link>
                 </li>
+              ) : (
+                <Dropdown placement="bottomRight" trigger={['hover']} key={index} overlay={MediaMenu}>
+                  <li className={this.activeNav(index)}>
+                    <a href="" style={{pointerEvents:'none'}}>{el.title}</a>
+                  </li>
+                </Dropdown>
               );
             })}
           </ul>

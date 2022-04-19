@@ -60,7 +60,7 @@ export default class FooterNav extends Component {
           </div>
           <div className="seg-line"></div>
           {/* 与我们联系 */}
-          <div className="contact-us">
+          <div className="contact-us-footer">
             <p>{t("footer_nav.contact_us")}</p>
             <p>invest@sevencapital.com</p>
           </div>

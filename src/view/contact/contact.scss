@@ -34,7 +34,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          color:$high-text;
+          color: $high-text;
           font-size: 32px;
           margin-right: 16px;
           border-right: 1px solid $line-color;
@@ -53,5 +53,21 @@
         align-items: center;
       }
     }
+  }
+  .intorduce-text {
+    text-align: left;
+    font-size: 18px;
+    line-height: 32px;
+    color: $text-color;
+  }
+  .intorduce-text:last-child {
+    margin-top: 40px;
+  }
+  .submit-title {
+    font-size: 24px;
+    color: $nav-active;
+    font-weight: bold;
+    margin:80px 0 40px;
+    text-align: left;
   }
 }

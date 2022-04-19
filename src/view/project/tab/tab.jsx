@@ -1,11 +1,12 @@
-import React, { Component, createRef } from "react";
+import React, { Component } from "react";
 import "./tab.scss";
 import IconFont from "../../../comsmine/icon_font";
 import store from "../../../store";
 import {
   setProActiveIndex,
   setProRaceID,
-  setRaceList
+  setRaceList,
+  setRaceOpen,
 } from "../../../store/app/action_creators";
 import { trackList } from "../../../request/api";
 
@@ -24,7 +25,6 @@ export default class ProTab extends Component {
         },
       ],
     };
-    this.raceRef = React.createRef();
     this.state = store.getState();
   }
   UNSAFE_componentWillMount() {
@@ -41,7 +41,9 @@ export default class ProTab extends Component {
     const action = setProActiveIndex(_index);
     store.dispatch(action);
     //更新选中Tab - ID
-    const action_id = setProRaceID(_index == 99 ? _index : race_list[_index].id);
+    const action_id = setProRaceID(
+      _index == 99 ? _index : race_list[_index].id
+    );
     store.dispatch(action_id);
     setFilterRaceID(_index == 99 ? null : race_list[_index].id);
   };
@@ -58,13 +60,18 @@ export default class ProTab extends Component {
   storeChange = () => {
     this.setState(store.getState());
   };
-  //点击向左滑动
+  //点击展开赛道
   moveRaceEv = () => {
-    //   this.raceRef.current.scrollLeft = -100;
-    console.log(this.raceRef);
+    const action = setRaceOpen(this.state.race_open == 1 ? 0 : 1);
+    store.dispatch(action);
+  };
+  componentWillUnmount = () => {
+    this.setState = (state, callback) => {
+      return;
+    };
   };
   render() {
-    const { race_list } = this.state;
+    const { race_list, race_open } = this.state;
     return (
       <div className="project-tab">
         <div
@@ -76,7 +83,10 @@ export default class ProTab extends Component {
           全部
           <span className="active-line"></span>
         </div>
-        <ul ref={this.raceRef}>
+        <ul
+          ref={this.raceRef}
+          className={race_open == 1 ? "no-limit-race" : ""}
+        >
           {race_list.map((el, index) => {
             return (
               <li
@@ -94,7 +104,7 @@ export default class ProTab extends Component {
         </ul>
         {/* 查看更多 */}
         <div
-          className="move-more-race"
+          className={`move-more-race ${race_open == 1 ? "open-more" : ""}`}
           onClick={() => {
             this.moveRaceEv();
           }}

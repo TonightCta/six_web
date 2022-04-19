@@ -1,0 +1,125 @@
+.contact-form {
+  .form-ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    li {
+      margin-bottom: 24px;
+      border-bottom: 1px solid $line-color;
+      width: 49%;
+      text-align: left;
+      height: 70px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      input {
+        height: 50px;
+        width: 100%;
+        font-size: 14px;
+        color: $nav-active;
+        z-index: 200;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      label {
+        position: absolute;
+        font-size: 14px;
+        color: $icon-color;
+        left: 0;
+        top: 38px;
+        transition: 0.3s all;
+        font {
+          font-size: 12px;
+        }
+      }
+      .file-inp {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        cursor: pointer;
+      }
+      p {
+        line-height: 50px;
+        z-index: 300;
+        span {
+          margin-left: 16px;
+          color: $href-color;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .help-type {
+    text-align: left;
+    margin: 24px 0;
+  }
+  .type-list {
+    margin-bottom: 24px;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      li {
+        width: 32%;
+        height: 64px;
+        border: 1px solid $line-color;
+        line-height: 64px;
+        cursor: pointer;
+        transition: 0.3s all;
+      }
+      .active-help {
+        background-color: $tab-acitve;
+        p {
+          color: white;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .contact-way {
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid $line-color;
+    margin-bottom: 48px;
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    input {
+      width: 100%;
+      height: 50px;
+      z-index: 200;
+      background-color: rgba(0, 0, 0, 0);
+    }
+    label {
+      position: absolute;
+      left: 0;
+      top: 38px;
+      z-index: 100;
+      transition: 0.3s all;
+      color: $icon-color;
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+  .label-top {
+    label {
+      font-size: 12px!important;
+      top: 0!important;
+    }
+  }
+  .contact-sub {
+    text-align: left;
+    margin-bottom: 160px;
+    button {
+      padding: 12px 48px;
+      background-color: $nav-active;
+      color: white;
+      font-weight: 18px;
+      font-weight: bold;
+      border: 0;
+    }
+  }
+}

@@ -1,11 +1,22 @@
 .jion-us {
-    margin-bottom: 160px;
-    p {
-      font-size: 16px;
-      color: $text-color;
-      button{
-        margin-top: 40px;
-        padding: 25px 108px;
-      }
+  margin-bottom: 160px;
+  box-sizing: border-box;
+  p {
+    font-size: 16px;
+    color: $text-color;
+    button {
+      margin:0 auto;
+      margin-top: 40px;
+      transition: .1s all;
+      box-sizing: border-box;
+      width: 280px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    button:hover{
+      border:3px solid $icon-color;
     }
   }
+}

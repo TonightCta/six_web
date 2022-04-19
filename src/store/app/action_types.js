@@ -6,3 +6,5 @@ export const SET_PRO_ACTIVE = 'set_pro_active';
 export const SET_PRO_RACE_ID = 'set_pro_race_id';
 export const SET_RACE_LIST = 'set_race_list';
 export const MOVE_RACE_DISTANCE = 'move_race_distance';
+export const MORE_RACE_OPEN = 'more_race_open';
+export const SET_MEDIA_TYPE = 'set_media_type';
