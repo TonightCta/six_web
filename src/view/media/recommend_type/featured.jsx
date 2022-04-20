@@ -16,6 +16,10 @@ const MediaFeatured = () => {
           精选
           <span
             onClick={() => {
+              window.scrollTo({
+                top:0,
+                behavior:'smooth'
+              })
               const action = setMediaType(1);
               store.dispatch(action);
             }}

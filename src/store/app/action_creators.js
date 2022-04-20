@@ -49,5 +49,15 @@ export const setRaceOpen = (status) => ({
 export const setMediaType = (media_type) => ({
     type:Type.SET_MEDIA_TYPE,
     media_type
+});
+//更新文章头部导航
+export const setDifferent = (nav_type) => ({
+    type:Type.SET_DIFFERENT_NAV,
+    nav_type
+});
+//更新导航阴影
+export const setNavShadow = (status) => ({
+    type:Type.SET_NAV_SHADOW,
+    status
 })
 

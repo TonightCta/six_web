@@ -8,3 +8,5 @@ export const SET_RACE_LIST = 'set_race_list';
 export const MOVE_RACE_DISTANCE = 'move_race_distance';
 export const MORE_RACE_OPEN = 'more_race_open';
 export const SET_MEDIA_TYPE = 'set_media_type';
+export const SET_DIFFERENT_NAV = 'set_different_nav'
+export const SET_NAV_SHADOW = 'set_nav_shadow';

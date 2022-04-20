@@ -1,0 +1,48 @@
+.view-more {
+  text-align: center;
+  margin-top: 80px;
+  .more-title {
+    font-size: 18px;
+    color: $text-color;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .more-tab {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    p {
+      font-size: 16px;
+      color: $text-color;
+      cursor: pointer;
+    }
+    span {
+      margin: 0 10px;
+    }
+  }
+  .sub-remark {
+    font-size: 16px;
+    color: $text-color;
+    margin-bottom: 30px;
+  }
+  .feedback-address {
+    height: 48px;
+    input {
+      height: 100%;
+      width: 260px;
+      background-color: $white-text;
+      padding-left: 24px;
+    }
+    button {
+      height: 100%;
+      width: 80px;
+      border: 0;
+      background-color: $btn-bg;
+      color: white;
+      font-weight: bold;
+    }
+  }
+  button:hover {
+    border: 0;
+  }
+}

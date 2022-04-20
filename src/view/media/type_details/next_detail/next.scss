@@ -1,0 +1,25 @@
+.next-report {
+  padding: 0 20px;
+  margin-top: 40px;
+  cursor: pointer;
+  p:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: $text-color;
+    .iconfont {
+      font-size: 24px;
+      color: $icon-color;
+      font-weight: 400;
+    }
+    margin-bottom: 20px;
+  }
+  p:last-child {
+    text-align: left;
+    font-size: 14px;
+    color: $text-color;
+    line-height: 24px;
+  }
+}

@@ -8,6 +8,7 @@ import i18n from "../../lang";
 import store from "../../store";
 import { Dropdown } from "antd";
 import MediaMenu from "./media_m/media_menu";
+import SearchBtn from "../../view/search/search_btn";
 import {
   changeLanguage,
   upNavHeight,
@@ -54,10 +55,10 @@ class NavHeader extends Component {
           is_menu: false,
         },
       ],
-      
     };
     this.state = store.getState();
-    this.nav_height = 120;
+    this.scrollTop = 0;
+    this.searchRef = React.createRef();
   }
   UNSAFE_componentWillMount() {
     window.addEventListener("scroll", this.handleScroll);
@@ -84,7 +85,7 @@ class NavHeader extends Component {
         action = upActiveNav(4);
         break;
       default:
-        action = upActiveNav(0);
+        action = upActiveNav(99);
     }
     store.dispatch(action);
     window.scrollTo({
@@ -114,55 +115,112 @@ class NavHeader extends Component {
   //监听页面滚动 - 为导航赋值高度
   handleScroll = () => {
     let scrollTop = document.documentElement.scrollTop;
+    this.scrollTop = scrollTop;
     const action = upNavHeight(scrollTop >= 50 ? 80 : 120);
     store.dispatch(action);
   };
+  setShadow = (bol) => {
+    console.log(bol);
+    this.isHasShadow = bol;
+  };
   render() {
     const { menu_list } = this.state_nav;
+    const { different_type,nav_shadow } = this.state;
     return (
-      <div
-        className="nav-header"
-        style={{ height: this.state.nav_height + "px" }}
-      >
-        <div className="tools-left">
-          {/* Logo */}
-          <img src={LogoImg} alt="" />
-        </div>
-        <div className="tools-right">
-          {/* 导航列表 */}
-          <ul>
-            {menu_list.map((el, index) => {
-              return !el.is_menu ? (
-                <li
-                  key={index}
-                  onClick={() => {
-                    this.changeActive(index);
-                  }}
-                  className={this.activeNav(index)}
-                >
-                  <Link to={`/index${el.url}`}>{el.title}</Link>
-                </li>
-              ) : (
-                <Dropdown placement="bottomRight" trigger={['hover']} key={index} overlay={MediaMenu}>
-                  <li className={this.activeNav(index)}>
-                    <a href="" style={{pointerEvents:'none'}}>{el.title}</a>
+      <div className="nav-header">
+        <div
+          className={`nav-header-inner ${
+            different_type == 1 && this.scrollTop >= 50 ? "different-nav" : ""
+          } ${nav_shadow == 0 ? "hidden-shadow" : ""}`}
+          style={{ height: this.state.nav_height + "px" }}
+        >
+          <div className="tools-left">
+            {/* Logo */}
+            <img src={LogoImg} alt="" />
+            <div className="art-title">
+              <div className="art-title-inner">
+                <p className="title-line"></p>
+                <p>
+                  Coinbase公布21年Q4财报：收入创新高并达到24.9亿美元
+                  月活用户达1140万
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="tools-right">
+            {/* 导航列表 */}
+            <ul>
+              {menu_list.map((el, index) => {
+                return !el.is_menu ? (
+                  <li
+                    key={index}
+                    onClick={() => {
+                      this.changeActive(index);
+                    }}
+                    className={this.activeNav(index)}
+                  >
+                    <Link to={`/index${el.url}`}>{el.title}</Link>
                   </li>
-                </Dropdown>
-              );
-            })}
-          </ul>
-          {/* 多语言切换 */}
-          <IconFont
-            className="iconfont left-first"
-            type="icon-fanyi_translate"
-            onClick={() => {
-              i18n.changeLanguage(i18n.language === "en" ? "zh-CN" : "en");
-              this.setLanguage(i18n.language);
-            }}
-          />
-          {/* 搜索 */}
-          <IconFont className="iconfont" type="icon-sousuo_search" />
+                ) : (
+                  <Dropdown
+                    placement="bottomRight"
+                    trigger={["hover"]}
+                    key={index}
+                    overlay={MediaMenu}
+                  >
+                    <li className={this.activeNav(index)}>
+                      <a href="" style={{ pointerEvents: "none" }}>
+                        {el.title}
+                      </a>
+                    </li>
+                  </Dropdown>
+                );
+              })}
+            </ul>
+            {/* 多语言切换 */}
+            <IconFont
+              className="iconfont left-first"
+              type="icon-fanyi_translate"
+              onClick={() => {
+                i18n.changeLanguage(i18n.language === "en" ? "zh-CN" : "en");
+                this.setLanguage(i18n.language);
+              }}
+            />
+            {/* 搜索 */}
+            <IconFont
+              onClick={() => {
+                // console.log(this.searchRef.current.searchStatus);
+                this.searchRef.current.changeSearch();
+              }}
+              className="iconfont"
+              type="icon-sousuo_search"
+            />
+          </div>
+          {/* 来源列表 */}
+          <div className="source-map">
+            <div className="map-inner">
+              <p>
+                <IconFont className="iconfont" type="icon-youjian" />
+              </p>
+              <p>
+                <IconFont className="iconfont" type="icon-weixin" />
+              </p>
+              <p>
+                <IconFont className="iconfont" type="icon-weibo" />
+              </p>
+              <p>
+                <IconFont className="iconfont" type="icon-tuite" />
+              </p>
+              <p>
+                <IconFont className="iconfont" type="icon-lianshu" />
+              </p>
+              <p>
+                <IconFont className="iconfont" type="icon-lianjie" />
+              </p>
+            </div>
+          </div>
         </div>
+        <SearchBtn setShadow={this.setShadow} ref={this.searchRef} />
       </div>
     );
   }

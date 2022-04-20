@@ -16,6 +16,10 @@ const MediaVideo = () => {
           视频
           <span
             onClick={() => {
+              window.scrollTo({
+                top:0,
+                behavior:'smooth'
+              })
               const action = setMediaType(4);
               store.dispatch(action);
             }}

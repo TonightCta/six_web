@@ -1,0 +1,54 @@
+.write-detail {
+  padding: 80px 0 120px 0;
+  width: 1170px;
+  margin: 0 auto;
+  .detail-content {
+    flex: 1;
+    text-align: left;
+  }
+  .author-info {
+    width: 370px;
+    padding: 40px;
+    margin-left: 30px;
+    text-align: center;
+    .author-msg {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .av-box {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid $line-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        img {
+          width: 100%;
+          vertical-align: middle;
+        }
+      }
+      .author-name {
+        font-size: 18px;
+        font-weight: bold;
+        color: $nav-active;
+        margin-bottom: 10px;
+      }
+      .author-contact-way {
+        display: flex;
+        margin-bottom: 40px;
+        color: $text-color;
+        p {
+          font-size: 14px;
+        }
+        .iconfont {
+          font-size: 16px;
+          margin-right: 2px;
+        }
+      }
+    }
+  }
+}

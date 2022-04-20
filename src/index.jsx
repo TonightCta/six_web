@@ -24,21 +24,40 @@ export default class Index extends Component {
             <Route history={history}>
               <Switch>
                 <AnimatedRouter>
+                  {/* 关于我们 */}
                   <Route
                     path="/index/about-us"
                     exact
                     component={View.AboutUs}
                   ></Route>
-
+                  {/* 研保 */}
                   <Route
                     path="/index/research-report"
                     component={View.ResearchReport}
                   ></Route>
+                  {/* 投资项目 */}
                   <Route path="/index/project" component={View.Project}></Route>
+                  {/* 媒体 */}
                   <Route path="/index/media" component={View.Media}></Route>
+                  {/* 联系我们 */}
                   <Route
                     path="/index/contact-us"
                     component={View.ContactUs}
+                  ></Route>
+                  {/* 写作 / 精选详情 */}
+                  <Route
+                    path="/index/write-detail"
+                    component={View.WriteDetail}
+                  ></Route>
+                  {/* 视频媒体详情 */}
+                  <Route
+                    path="/index/video-detail"
+                    component={View.VideoDetail}
+                  ></Route>
+                  {/* 播客媒体详情 */}
+                  <Route
+                    path="/index/podcast-detail"
+                    component={View.PodcastDetail}
                   ></Route>
                 </AnimatedRouter>
               </Switch>

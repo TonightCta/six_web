@@ -16,6 +16,10 @@ const MediaPodcast = () => {
           播客
           <span
             onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
               const action = setMediaType(3);
               store.dispatch(action);
             }}

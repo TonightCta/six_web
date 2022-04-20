@@ -9,8 +9,10 @@ const defaultState = {
     active_tab_pro_id: window.sessionStorage.getItem('active_tab_pro_id') || 99,//投资项目选中赛道ID
     race_list: [],//赛道列表
     race_distance: window.sessionStorage.getItem('race_distance') || 0,//赛道滚动距离
-    race_open: window.sessionStorage.getItem('race_open') || 0,
-    media_type: window.sessionStorage.getItem('media_type') || 99,
+    race_open: window.sessionStorage.getItem('race_open') || 0,//赛道展开状态
+    media_type: window.sessionStorage.getItem('media_type') || 99,//媒体子类型
+    different_type:window.sessionStorage.getItem('different_type') || 0,//特殊导航状态
+    nav_shadow:1,
 };
 export default (state = defaultState, action) => {
     switch (action.type) {
@@ -53,6 +55,13 @@ export default (state = defaultState, action) => {
         case Type.SET_MEDIA_TYPE:
             sessionStorage.setItem('media_type', action.media_type)
             return { ...state, media_type: action.media_type }
+        //更新文章导航
+        case Type.SET_DIFFERENT_NAV:
+            sessionStorage.setItem('different_nav',action.nav_type)
+            return { ...state,different_type:action.nav_type }
+        //更新导航阴影状态
+        case Type.SET_NAV_SHADOW:
+            return { ...state,nav_shadow:action.status }
         default:
             return state;
     };

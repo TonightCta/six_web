@@ -16,6 +16,10 @@ const MediaWrite = () => {
           写作
           <span
             onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
               const action = setMediaType(2);
               store.dispatch(action);
             }}

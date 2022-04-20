@@ -23,10 +23,6 @@ export default class Media extends Component {
   storeChange = () => {
     this.setState(store.getState());
   };
-  componentWillUnmount = () => {
-    const action = setMediaType(99);
-    store.dispatch(action);
-  };
   //获取媒体数据类型
   getMediaTypeList = (_type) => {
     const { media_type } = this.state;
@@ -42,6 +38,13 @@ export default class Media extends Component {
       default:
         return _type == 0 ? "精选" : <FeaturedType />;
     }
+  };
+  componentWillUnmount = () => {
+    const action = setMediaType(99);
+    store.dispatch(action);
+    this.setState = (state, callback) => {
+      return;
+    };
   };
   render() {
     const { media_type } = this.state;
