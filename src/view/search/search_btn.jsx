@@ -19,6 +19,7 @@ const SearchBtn = React.forwardRef((props, ref) => {
   useEffect(() => {
     // console.log(props);
   }, []);
+  //监听搜索打开状态
   useEffect(() => {
     searchStatus ? setShowMask("show-mask") : setShowMask("");
     setTimeout(() => {
@@ -29,6 +30,7 @@ const SearchBtn = React.forwardRef((props, ref) => {
     const action = setNavShadow(searchStatus ? 0 : 1);
     store.dispatch(action);
   }, [searchStatus]);
+  //向父组件发射自定义方法
   useImperativeHandle(ref, () => ({
     changeSearch: () => {
       setSearchStatus(searchStatus ? false : true);

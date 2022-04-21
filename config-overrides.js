@@ -19,5 +19,5 @@ module.exports = override(
 const path = require('path');
  
 const paths = require("react-scripts/config/paths");
-paths.appBuild = path.join(path.dirname(paths.appBuild), "../Six_One_Capital/public/");
+paths.appBuild = path.join(path.dirname(paths.appBuild), "../Six_One_Capital/public/dist");
 // config.output.path = path.join(path.dirname(config.output.path), "dist");
