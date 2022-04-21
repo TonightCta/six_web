@@ -1,4 +1,6 @@
 import { get, post } from './http.js'
+console.log(123123)
+console.log(process.env)
 let url = process.env.REACT_APP_BASEURL;
 
 //赛道列表
