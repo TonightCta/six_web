@@ -60,4 +60,9 @@ export const setNavShadow = (status) => ({
     type:Type.SET_NAV_SHADOW,
     status
 })
+//更新搜索内容
+export const setSearchVal = (value) => ({
+    type:Type.SET_SEARCH_VALUE,
+    value
+})
 

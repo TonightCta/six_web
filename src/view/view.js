@@ -6,6 +6,7 @@ import ContactUs from './contact/contact_us';
 import WriteDetail from './media/type_details/write/write_details';
 import VideoDetail from './media/type_details/video/video_details';
 import PodcastDetail from './media/type_details/podcast/pod_cast';
+import SearchResult from './search/search_result';
 export {
     AboutUs,
     ResearchReport,
@@ -14,5 +15,6 @@ export {
     ContactUs,
     WriteDetail,
     VideoDetail,
-    PodcastDetail
+    PodcastDetail,
+    SearchResult
 };

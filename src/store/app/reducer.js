@@ -13,6 +13,7 @@ const defaultState = {
     media_type: window.sessionStorage.getItem('media_type') || 99,//媒体子类型
     different_type:window.sessionStorage.getItem('different_type') || 0,//特殊导航状态
     nav_shadow:1,
+    search_val:window.sessionStorage.getItem('search_val') || "",
 };
 export default (state = defaultState, action) => {
     switch (action.type) {
@@ -62,6 +63,10 @@ export default (state = defaultState, action) => {
         //更新导航阴影状态
         case Type.SET_NAV_SHADOW:
             return { ...state,nav_shadow:action.status }
+        //更新搜索内容
+        case Type.SET_SEARCH_VALUE:
+            sessionStorage.setItem('search_val',action.value)
+            return { ...state,search_val:action.value }
         default:
             return state;
     };

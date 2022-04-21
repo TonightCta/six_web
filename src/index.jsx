@@ -59,6 +59,11 @@ export default class Index extends Component {
                     path="/index/podcast-detail"
                     component={View.PodcastDetail}
                   ></Route>
+                  {/* 搜索内容页 */}
+                  <Route
+                    path="/index/search"
+                    component={View.SearchResult}
+                  ></Route>
                 </AnimatedRouter>
               </Switch>
             </Route>

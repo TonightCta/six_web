@@ -10,3 +10,4 @@ export const MORE_RACE_OPEN = 'more_race_open';
 export const SET_MEDIA_TYPE = 'set_media_type';
 export const SET_DIFFERENT_NAV = 'set_different_nav'
 export const SET_NAV_SHADOW = 'set_nav_shadow';
+export const SET_SEARCH_VALUE = 'set_search_value';
