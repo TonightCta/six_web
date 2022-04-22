@@ -95,7 +95,10 @@ export default class ContactForm extends Component {
       type: this.state.help_type,
     };
     const feed = await FeedBack(params);
-    console.log(feed);
+    if (feed.code != 2000) {
+      message.error(feed.msg);
+      return;
+    }
     message.success("提交成功");
     this.setState({
       project_name: "",
