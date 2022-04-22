@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { message, Spin } from "antd";
 import "./form.scss";
+import { UpFiles, FeedBack } from "../../../request/api";
 
 export default class ContactForm extends Component {
   constructor() {
@@ -27,32 +29,95 @@ export default class ContactForm extends Component {
       contact_way: "",
       //联系方式输入状态
       contact_way_status: 0,
+      //上传状态
+      up_status: false,
     };
     this.helpList = [
       {
         name: "产品设计",
-        type: 1,
+        type: 0,
       },
       {
         name: "研究报告",
-        type: 2,
+        type: 1,
       },
       {
         name: "资金投资",
-        type: 3,
+        type: 2,
       },
     ];
     this.file_ref = React.createRef();
   }
-
+  //类型选择状态
   setTabActive = (_index) => {
     return _index == this.state.help_type ? "active-help" : "";
+  };
+  //提交反馈
+  subFeedBack = async () => {
+    console.log(this.state);
+    if (!this.state.project_name) {
+      message.error("请输入项目名称");
+      return;
+    }
+    if (!this.state.project_info) {
+      message.error("请输入项目信息");
+      return;
+    }
+    if (!this.state.project_file) {
+      message.error("请上传反馈附件");
+      return;
+    }
+    if (this.state.help_type == 99) {
+      message.error("请选择帮助类型");
+      return;
+    }
+    if (!this.state.contact_way) {
+      message.error("请输入您的联系方式");
+      return;
+    }
+    this.setState({
+      up_status: true,
+    });
+    const formdata = new FormData();
+    formdata.append("file", this.state.project_file);
+    const file = await UpFiles(formdata);
+    console.log(file);
+    if (!file.data) {
+      message.error(file.msg);
+      return;
+    }
+    const params = {
+      name: this.state.project_name,
+      info: this.state.project_info,
+      file: file.data.fullurl,
+      url: this.state.project_websit,
+      contact: this.state.contact_way,
+      type: this.state.help_type,
+    };
+    const feed = await FeedBack(params);
+    console.log(feed);
+    message.success("提交成功");
+    this.setState({
+      project_name: "",
+      pro_label_status: 0,
+      project_websit: "",
+      websit_label_status: 0,
+      project_info: "",
+      info_label_status: 0,
+      project_file: "",
+      file_label_status: 0,
+      help_type: 99,
+      contact_way: "",
+      contact_way_status: 0,
+      up_status: false,
+    });
   };
   render() {
     return (
       <div className="contact-form">
         <form>
           <ul className="form-ul">
+            {/* 项目名称 */}
             <li className={this.state.pro_label_status == 1 ? "label-top" : ""}>
               <input
                 type="text"
@@ -75,6 +140,7 @@ export default class ContactForm extends Component {
               />
               <label>项目名称</label>
             </li>
+            {/* 项目官网链接 */}
             <li
               className={this.state.websit_label_status == 1 ? "label-top" : ""}
             >
@@ -101,6 +167,7 @@ export default class ContactForm extends Component {
                 项目官网链接&nbsp;&nbsp;<font>(如果有的话)</font>
               </label>
             </li>
+            {/* 项目信息 */}
             <li
               className={this.state.info_label_status == 1 ? "label-top" : ""}
             >
@@ -125,6 +192,7 @@ export default class ContactForm extends Component {
               />
               <label>项目信息</label>
             </li>
+            {/* 附件 */}
             <li
               className={this.state.file_label_status == 1 ? "label-top" : ""}
             >
@@ -151,7 +219,7 @@ export default class ContactForm extends Component {
                 single="1"
                 ref={this.file_ref}
                 className="file-inp"
-                accept="application/pdf"
+                accept=".pdf,.xls,.doc,.ppt,"
                 onChange={(e) => {
                   this.setState({
                     project_file: e.target.files[0],
@@ -204,6 +272,7 @@ export default class ContactForm extends Component {
         >
           <input
             type="text"
+            value={this.state.contact_way}
             onFocus={() => {
               this.setState({
                 contact_way_status: 1,
@@ -211,7 +280,12 @@ export default class ContactForm extends Component {
             }}
             onBlur={() => {
               this.setState({
-                contact_way_status: !this.state.contact ? 0 : 1,
+                contact_way_status: !this.state.contact_way ? 0 : 1,
+              });
+            }}
+            onChange={(e) => {
+              this.setState({
+                contact_way: e.target.value,
               });
             }}
           />
@@ -221,7 +295,14 @@ export default class ContactForm extends Component {
         </div>
         {/* 提交 */}
         <div className="contact-sub">
-          <button>提交</button>
+          <button
+            onClick={() => {
+              this.subFeedBack();
+            }}
+            disabled={this.state.up_status}
+          >
+            {this.state.up_status ? <Spin size="small" /> : "提交"}
+          </button>
         </div>
       </div>
     );
