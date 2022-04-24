@@ -1,43 +1,86 @@
-import React, { Component } from "react";
+import React from "react";
 import "./list.scss";
-import TestImg from "../../../assets/images/test.png";
+import { useState, useEffect, useImperativeHandle } from "react";
+import { ProListService } from "../../../request/api";
+// import store from "../../../store";
+import SpinMine from "../../../comsmine/spin_mine/spin_mine";
 
-export default class ProList extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const { proList } = this.props;
-    return (
-      <div className="pro-list">
+const ProList = React.forwardRef((props, ref) => {
+  // let state;
+  // state = store.getState();
+  // const storeChange = () => {
+  //   state = store.getState();
+  // };
+  // store.subscribe(storeChange);
+  // const [raceID,setRaceID] = useState(state.active_tab_pro_id);
+  // useEffect(() => {
+  //   console.log(raceID)
+  // },[raceID])
+
+  //项目列表
+  const [proData, setProData] = useState({});
+  useImperativeHandle(ref, () => ({
+    upProDataWithID: (_id) => {
+      setProData({});
+      getProList(_id);
+    },
+  }));
+
+  const getProList = async (_id) => {
+    const params = {
+      page: 1,
+      limit: 10,
+      rid: _id,
+    };
+    const result = await ProListService(params);
+    setProData(result);
+  };
+  useEffect(() => {
+    getProList("");
+  }, []);
+  return (
+    <div className="pro-list">
+      {!proData.total ? (
+        <SpinMine size="large" />
+      ) : (
         <ul>
-          <li>
-            <div className="msg-left">
-              <div className="img-box">
-                <img src={TestImg} alt="" />
-              </div>
-              <p>
-                <button>网站</button>
-                <span className="btn-label"></span>
-                <button>推特</button>
-              </p>
-            </div>
-            <div className="msg-right">
-              <p className="msg-title">去中心化和自治的跨链流动性网络</p>
-              <p className="msg-type">
-                <span>基础设施</span>
-                <span>企业</span>
-              </p>
-              <p className="msg-text">
-                Helium 正在为数十亿的物联网设备创建一个新的全球网络。该网络由
-                Helium Hotspots 提供支持，提供无线覆盖并生成 Helium
-                代币。在几分钟内，任何人都可以使用 Helium 的新开放无线协议
-                LongFi 设置热点并为低功耗物联网设备提供连接。
-              </p>
-            </div>
-          </li>
+          {proData.total > 0 ? (
+            proData.data.map((el, index) => {
+              return (
+                <li key={index}>
+                  <div className="msg-left">
+                    <div className="img-box">
+                      <img src={el.image} alt="" />
+                    </div>
+                    <p>
+                      <a href={el.addr} target="_blank">
+                        <button>网站</button>
+                      </a>
+                      <span className="btn-label"></span>
+                      <a href={el.twitter_addr} target="_blank">
+                        <button>推特</button>
+                      </a>
+                    </p>
+                  </div>
+                  <div className="msg-right">
+                    <p className="msg-title">{el.title}</p>
+                    <p className="msg-type">
+                      <span>{el.name.join("  ")}</span>
+                    </p>
+                    <p className="msg-text">{el.desc}</p>
+                  </div>
+                </li>
+              );
+            })
+          ) : (
+            <li className="no-data-tag">
+              <p>暂无数据</p>
+            </li>
+          )}
         </ul>
-      </div>
-    );
-  }
-}
+      )}
+    </div>
+  );
+});
+
+export default ProList;

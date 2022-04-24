@@ -64,5 +64,10 @@ export const setNavShadow = (status) => ({
 export const setSearchVal = (value) => ({
     type:Type.SET_SEARCH_VALUE,
     value
+});
+//更新当前阅读ID
+export const setReadID = (id) => ({
+    type:Type.SET_READ_ID,
+    id
 })
 

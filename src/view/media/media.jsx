@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { t } from "i18next";
 import store from "../../store";
 import "./media.scss";
-import MediaVideo from "./recommend_type/video";
-import MediaFeatured from "./recommend_type/featured";
-import MediaWrite from "./recommend_type/write";
-import MediaPodcast from "./recommend_type/podcast";
+import MediaVideoRender from "./recommend_type/video";
+import MediaFeaturedRender from "./recommend_type/featured";
+import MediaWriteRender from "./recommend_type/write";
+import MediaPodcastRender from "./recommend_type/podcast";
 import FeaturedType from "./media_type/featured_type";
 import VideoType from "./media_type/video_type";
 import PodcastType from "./media_type/podcast_type";
@@ -60,13 +60,13 @@ export default class Media extends Component {
           {/* 右侧推荐 */}
           <div className="recommend-parent">
             {/* 精选 */}
-            {media_type != 1 ? <MediaFeatured /> : ""}
+            {media_type != 1 ? <MediaFeaturedRender /> : ""}
             {/* 写作 */}
-            {media_type != 2 ? <MediaWrite /> : ""}
+            {media_type != 2 ? <MediaWriteRender /> : ""}
             {/* 博客 */}
-            {media_type != 3 ? <MediaPodcast /> : ""}
+            {media_type != 3 ? <MediaPodcastRender /> : ""}
             {/* 视频 */}
-            {media_type != 4 ? <MediaVideo /> : ""}
+            {media_type != 4 ? <MediaVideoRender /> : ""}
           </div>
         </div>
       </div>

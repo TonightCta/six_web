@@ -11,9 +11,10 @@ const defaultState = {
     race_distance: window.sessionStorage.getItem('race_distance') || 0,//赛道滚动距离
     race_open: window.sessionStorage.getItem('race_open') || 0,//赛道展开状态
     media_type: window.sessionStorage.getItem('media_type') || 99,//媒体子类型
-    different_type:window.sessionStorage.getItem('different_type') || 0,//特殊导航状态
-    nav_shadow:1,
-    search_val:window.sessionStorage.getItem('search_val') || "",
+    different_type: window.sessionStorage.getItem('different_type') || 0,//特殊导航状态
+    nav_shadow: 1,
+    search_val: window.sessionStorage.getItem('search_val') || "",
+    read_id: window.sessionStorage.getItem('read_id') || null,//当前阅读ID
 };
 export default (state = defaultState, action) => {
     switch (action.type) {
@@ -58,15 +59,18 @@ export default (state = defaultState, action) => {
             return { ...state, media_type: action.media_type }
         //更新文章导航
         case Type.SET_DIFFERENT_NAV:
-            sessionStorage.setItem('different_nav',action.nav_type)
-            return { ...state,different_type:action.nav_type }
+            sessionStorage.setItem('different_nav', action.nav_type)
+            return { ...state, different_type: action.nav_type }
         //更新导航阴影状态
         case Type.SET_NAV_SHADOW:
-            return { ...state,nav_shadow:action.status }
+            return { ...state, nav_shadow: action.status }
         //更新搜索内容
         case Type.SET_SEARCH_VALUE:
-            sessionStorage.setItem('search_val',action.value)
-            return { ...state,search_val:action.value }
+            sessionStorage.setItem('search_val', action.value)
+            return { ...state, search_val: action.value }
+        case Type.SET_READ_ID:
+            sessionStorage.setItem('read_id', action.id)
+            return { ...state, read_id: action.id }
         default:
             return state;
     };

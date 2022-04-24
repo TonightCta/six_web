@@ -1,14 +1,16 @@
 import "./recommend.scss";
 import store from "../../../store";
 import { setMediaType } from "../../../store/app/action_creators";
-const MediaVideo = () => {
-  const reList = [
-    "BTC V形反转 回升有望延续？",
-    "Coinbase公布21年Q4财报：收入创新高并达到24.9亿美元 月活用户达1140万",
-    "刘扬律师解读：虚拟币交易是非法集资？",
-    "餐桌上怎么变出元宇宙？",
-    "那些ALL IN 加密货币的年轻人",
-  ];
+import { MediaVideo } from "../../../request/api";
+import { useState, useEffect } from "react";
+import SpinMine from "../../../comsmine/spin_mine/spin_mine";
+const MediaVideoRender = () => {
+  const [reVideoList, setReVideoList] = useState({});
+  useEffect(async () => {
+    const result = await MediaVideo({ page: 1, limit: 5 });
+    setReVideoList(result);
+    console.log(result);
+  }, []);
   return (
     <div className="recommend-box">
       <div className="title-and-line">
@@ -17,9 +19,9 @@ const MediaVideo = () => {
           <span
             onClick={() => {
               window.scrollTo({
-                top:0,
-                behavior:'smooth'
-              })
+                top: 0,
+                behavior: "smooth",
+              });
               const action = setMediaType(4);
               store.dispatch(action);
             }}
@@ -30,17 +32,21 @@ const MediaVideo = () => {
         <div className="re-line"></div>
       </div>
       <div className="re-list">
-        <ul>
-          {reList.map((el, index) => {
-            return (
-              <li key={index}>
-                <p>{el}</p>
-              </li>
-            );
-          })}
-        </ul>
+        {!reVideoList.total ? (
+          <SpinMine size=" " />
+        ) : (
+          <ul>
+            {reVideoList.data.map((el, index) => {
+              return (
+                <li key={index}>
+                  <p>{el.title}</p>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
     </div>
   );
 };
-export default MediaVideo;
+export default MediaVideoRender;

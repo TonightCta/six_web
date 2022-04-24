@@ -2,6 +2,10 @@
   padding-top: 80px;
   width: 1170px;
   margin: 0 auto;
+  .loading-box-mine {
+    flex: none;
+    max-height: 500px;
+  }
   .media-title {
     margin-bottom: 40px;
     font-size: 40px;

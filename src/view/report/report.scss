@@ -87,11 +87,16 @@
       padding: 120px 80px 80px;
       background-color: $white-text;
       text-align: left;
-      img {
+
+      .remark-left-img {
         width: 1170px;
         height: 360px;
         margin-left: -160px;
         margin-bottom: 90px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
     .remark-need-center {
@@ -99,9 +104,12 @@
       width: 100%;
       background: white;
       text-align: left;
-      img {
+      .remark-center-img {
         width: 100%;
         margin-bottom: 90px;
+        img {
+          width: 100%;
+        }
       }
     }
   }

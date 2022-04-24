@@ -18,7 +18,6 @@ export default class ContactUs extends Component {
   }
   async getContactInfo() {
     const result = await ContactInfo();
-    console.log(result);
     this.setState({
       infoMsg: result,
     });

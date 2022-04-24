@@ -17,7 +17,7 @@
           height: 4px;
           border-radius: 50%;
           background-color: $active-line;
-          margin:0 8px;
+          margin: 0 8px;
           transform: translateY(-3px);
         }
       }
@@ -122,6 +122,11 @@
         font-weight: 400;
         color: $icon-color;
         margin-left: 80px;
+      }
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
