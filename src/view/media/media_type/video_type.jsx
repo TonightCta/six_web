@@ -17,7 +17,6 @@ const VideoType = () => {
     const result = await MediaVideo({ page: page, limit: 10 });
     setListTotal(result.total);
     setLastPage(result.last_page);
-    console.log(result);
     setListInner(page == 1 ? result.data : listInner.concat(result.data));
   };
   useEffect(async () => {

@@ -3,6 +3,11 @@
   padding-bottom: 120px;
   width: 1170px;
   margin: 0 auto;
+  .no-search-data {
+    font-size: 18px;
+    padding-top: 30px;
+    color: $text-color;
+  }
   .search-inp {
     width: 100%;
     border-bottom: 1px solid $line-color;

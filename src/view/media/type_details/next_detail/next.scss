@@ -2,6 +2,9 @@
   padding: 0 20px;
   margin-top: 40px;
   cursor: pointer;
+  .loading-box-mine{
+    min-height: 100px;
+  }
   p:first-child {
     display: flex;
     justify-content: space-between;

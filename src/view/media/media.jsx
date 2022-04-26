@@ -40,8 +40,8 @@ export default class Media extends Component {
     }
   };
   componentWillUnmount = () => {
-    const action = setMediaType(99);
-    store.dispatch(action);
+    // const action = setMediaType(99);
+    // store.dispatch(action);
     this.setState = (state, callback) => {
       return;
     };

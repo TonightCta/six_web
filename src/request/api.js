@@ -2,7 +2,7 @@ import { get, post } from './http.js'
 let url = process.env.REACT_APP_BASEURL;
 
 //用户信息
-export const userInfo = p => get(url + '/race/get',p);
+export const userInfo = p => get(url + '/race/get', p);
 //赛道列表
 export const trackList = p => get(url + '/race/get', p);
 //注册
@@ -27,3 +27,11 @@ export const MediaWrite = p => get(url + '/medium/list', p);
 export const MediaPodcast = p => get(url + '/medium/podCastList', p);
 //媒体- 视频
 export const MediaVideo = p => get(url + '/medium/videoList', p);
+//媒体 - 详情
+export const MediaDetailsSe = p => get(url + '/medium/info', p);
+//下一篇媒体
+export const NextMedia = p => get(url + '/medium/next',p);
+//搜索
+export const SearchAll = p => get(url + '/medium/searchList', p);
+//订阅
+export const SubscribeMsg = p => get(url + '/Subscribe/Subscribe',p);

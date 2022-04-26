@@ -15,6 +15,7 @@ const defaultState = {
     nav_shadow: 1,
     search_val: window.sessionStorage.getItem('search_val') || "",
     read_id: window.sessionStorage.getItem('read_id') || null,//当前阅读ID
+    nav_title:window.sessionStorage.getItem('nav_title') || null,
 };
 export default (state = defaultState, action) => {
     switch (action.type) {
@@ -71,6 +72,9 @@ export default (state = defaultState, action) => {
         case Type.SET_READ_ID:
             sessionStorage.setItem('read_id', action.id)
             return { ...state, read_id: action.id }
+        case Type.SET_NAV_TITLE:
+            sessionStorage.setItem('nav_title',action.title)
+            return { ...state,nav_title:action.title }
         default:
             return state;
     };

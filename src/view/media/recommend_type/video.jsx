@@ -9,7 +9,6 @@ const MediaVideoRender = () => {
   useEffect(async () => {
     const result = await MediaVideo({ page: 1, limit: 5 });
     setReVideoList(result);
-    console.log(result);
   }, []);
   return (
     <div className="recommend-box">

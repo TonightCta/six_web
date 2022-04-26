@@ -20,9 +20,20 @@ const FeaturedType = () => {
     setLastPage(result.last_page);
     setListInner(page == 1 ? result.data : listInner.concat(result.data));
   };
-  // useMemo(() => {
 
+
+  // useMemo(() => {
+  //   //useState中定义的数据
+  //   page == 1 
+  //     ? (dataList = dataList)
+  //     : dataList = {
+  //       total:otherList.total,
+  //       list:dataList.data.concat(otherList.data)
+  //     }
+  //   return dataList
   // }, [dataList]);
+
+
   useEffect(async () => {
     await getFeaList();
     setLoadStatus(false);

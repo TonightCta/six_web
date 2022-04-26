@@ -69,5 +69,10 @@ export const setSearchVal = (value) => ({
 export const setReadID = (id) => ({
     type:Type.SET_READ_ID,
     id
+});
+//更新导航标题
+export const setNavTitle = (title) => ({
+    type:Type.SET_NAV_TITLE,
+    title
 })
 

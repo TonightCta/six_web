@@ -9,10 +9,12 @@ import store from "../../store";
 import { Dropdown } from "antd";
 import MediaMenu from "./media_m/media_menu";
 import SearchBtn from "../../view/search/search_btn";
+import { MediaDetailsSe } from "../../request/api";
 import {
   changeLanguage,
   upNavHeight,
   upActiveNav,
+  setNavTitle,
 } from "../../store/app/action_creators";
 class NavHeader extends Component {
   constructor() {
@@ -65,6 +67,13 @@ class NavHeader extends Component {
   }
   componentDidMount() {
     store.subscribe(this.storeChange);
+    const { different_type, read_id } = this.state;
+    const getWriteTitle = async () => {
+      const result = await MediaDetailsSe({ id: read_id });
+      const action = setNavTitle(result.title);
+      store.dispatch(action);
+    };
+    getWriteTitle();
   }
   UNSAFE_componentWillReceiveProps(nextProps) {
     let action = null;
@@ -120,12 +129,11 @@ class NavHeader extends Component {
     store.dispatch(action);
   };
   setShadow = (bol) => {
-    console.log(bol);
     this.isHasShadow = bol;
   };
   render() {
     const { menu_list } = this.state_nav;
-    const { different_type,nav_shadow } = this.state;
+    const { different_type, nav_shadow, nav_title } = this.state;
     return (
       <div className="nav-header">
         <div
@@ -140,10 +148,7 @@ class NavHeader extends Component {
             <div className="art-title">
               <div className="art-title-inner">
                 <p className="title-line"></p>
-                <p>
-                  Coinbase公布21年Q4财报：收入创新高并达到24.9亿美元
-                  月活用户达1140万
-                </p>
+                <p>{nav_title}</p>
               </div>
             </div>
           </div>

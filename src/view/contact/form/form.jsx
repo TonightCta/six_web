@@ -54,7 +54,6 @@ export default class ContactForm extends Component {
   };
   //提交反馈
   subFeedBack = async () => {
-    console.log(this.state);
     if (!this.state.project_name) {
       message.error("请输入项目名称");
       return;
@@ -81,7 +80,6 @@ export default class ContactForm extends Component {
     const formdata = new FormData();
     formdata.append("file", this.state.project_file);
     const file = await UpFiles(formdata);
-    console.log(file);
     if (!file.data) {
       message.error(file.msg);
       return;

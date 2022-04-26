@@ -12,3 +12,4 @@ export const SET_DIFFERENT_NAV = 'set_different_nav'
 export const SET_NAV_SHADOW = 'set_nav_shadow';
 export const SET_SEARCH_VALUE = 'set_search_value';
 export const SET_READ_ID = "set_read_id";
+export const SET_NAV_TITLE = 'set_nav_title';
