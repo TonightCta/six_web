@@ -43,7 +43,7 @@ const VideoType = () => {
                     <p className="data-type">视频</p>
                     <p className="data-title">{el.title}</p>
                     <div className="video-inner-box">
-                      <img src={VideoImg} alt="" />
+                      <img src={el.cover_image} alt="" />
                       <div className="play-btn">
                         <IconFont className="iconfont" type="icon-bofang" />
                       </div>
