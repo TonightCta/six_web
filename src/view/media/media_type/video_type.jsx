@@ -1,6 +1,5 @@
 import "./_type.scss";
 import IconFont from "../../../comsmine/icon_font";
-import VideoImg from "../../../assets/images/video.png";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { message } from "antd";
