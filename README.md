@@ -9,6 +9,8 @@ Class模式 + Hooks模式
 
 REACT_APP_BASEURL - 后台接口域名地址
 
+repuest/api  -  全局接口管理
+
 setupProxy.js - 设置本地代理环境
 
 
