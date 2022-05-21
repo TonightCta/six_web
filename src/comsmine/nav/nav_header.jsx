@@ -23,7 +23,7 @@ class NavHeader extends Component {
       menu_list: [
         {
           //关于我们
-          title: t("menu.about"),
+          title: `123${t("menu.about")}`,
           id: 1,
           url: "/about-us",
           is_menu: false,
